@@ -30,7 +30,7 @@ def feedback():
         
         return jsonify({
             "status": "sucesso",
-            "mensagem_servidor": respuesta_texto
+            "mensagem_servidor": resposta_texto
         })
     except Exception as e:
         return jsonify({"status": "erro", "mensagem": str(e)}), 500
