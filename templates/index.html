@@ -57,7 +57,7 @@
                 const resultadoCard = document.getElementById('resultadoCard');
                 const respostaServidor = document.getElementById('respostaServidor');
                 
-                respostaServidor.innerText = data.mensagem_servidor;
+             respostaServidor.innerText = data.mensagem_servidor || data.mensagem || "Dados processados!";
                 resultadoCard.classList.remove('hidden');
             } catch (error) {
                 console.error('Erro na integração:', error);
