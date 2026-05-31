@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 import os
 
+# Descobre o caminho absoluto da pasta onde este arquivo (index.py) está
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Aponta para as pastas templates e static subindo um nível usando caminhos absolutos
 app = Flask(__name__, 
-            template_folder='../templates',
-            static_folder='../static')
+            template_folder=os.path.join(BASE_DIR, '../templates'),
+            static_folder=os.path.join(BASE_DIR, '../static'))
 
 # Rota principal para carregar a página
 @app.route('/')
