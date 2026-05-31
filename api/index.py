@@ -20,17 +20,19 @@ def home():
 
 # Rota de API (Integração Front e Back)
 @app.route('/api/feedback', methods=['POST'])
+@app.route('/api/feedback', methods=['POST'])
 def feedback():
     try:
         dados = request.get_json() or {}
         nome = dados.get('nome', 'Visitante')
         mensagem = dados.get('mensagem', '')
         
-        resposta_texto = f"Olá, {nome}! Seu feedback ('{mensagem}') foi processado com sucesso pelo servidor Python."
+        # Criando a variável com "o" e usando exatamente a mesma logo abaixo
+        resposta_final = f"Olá, {nome}! Seu feedback ('{mensagem}') foi processado com sucesso pelo servidor Python."
         
         return jsonify({
             "status": "sucesso",
-            "mensagem_servidor": resposta_texto
+            "mensagem_servidor": resposta_final
         })
     except Exception as e:
         return jsonify({"status": "erro", "mensagem": str(e)}), 500
